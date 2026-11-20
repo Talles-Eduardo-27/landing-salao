@@ -38,3 +38,7 @@ HTML5 · CSS3 (Grid, Flexbox, variáveis, animações) · JavaScript puro (Intl,
 ---
 
 Projeto de portfólio de [Talles Eduardo](https://github.com/Talles-Eduardo-27).
+
+## Prévia para um negócio de verdade
+
+Acrescente `?n=Nome do negócio&b=Bairro` ao link (exemplo: `?n=Studio%20Exemplo&b=Messejana`). A página mostra o nome e o bairro, avisa no topo que é uma prévia e troca a história, os números e o endereço do exemplo por avisos; serviços, preços e fotos continuam sendo exemplos. O teste pelo WhatsApp chega no número do Talles, marcado como teste. Na versão de um cliente, troque `WHATSAPP` pelo número dele.

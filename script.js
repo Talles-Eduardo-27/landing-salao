@@ -1,5 +1,47 @@
-// Troque pelo número do cliente: 55 + DDD + número, só dígitos
-const WHATSAPP = "5585900000000";
+// Número para o teste: o pedido de demonstração chega no WhatsApp do Talles, marcado como teste.
+// Fica invertido no código para robôs que varrem o GitHub não colherem o número.
+// Na versão de um cliente, troque pelo número dele: 55 + DDD + número, só dígitos.
+const WHATSAPP = "0419812995855".split("").reverse().join("");
+
+// Prévia para um negócio de verdade: acrescente ?n=Nome%20do%20negócio&b=Bairro ao link.
+// A página mostra o nome, avisa no topo que é uma prévia e troca a história, os números
+// e o endereço do exemplo por avisos. Serviços, preços e fotos continuam sendo exemplos.
+const DEMO_P = new URLSearchParams(location.search);
+const DEMO_NOME = (DEMO_P.get("n") || "").replace(/\s+/g, " ").trim().slice(0, 60);
+const DEMO_BAIRRO = (DEMO_P.get("b") || "").replace(/\s+/g, " ").trim().slice(0, 40);
+(function () {
+  const rod = document.querySelector(".rodape p");
+  if (!DEMO_NOME) {
+    if (rod) rod.append(" Os testes pelo WhatsApp chegam no número do Talles, marcados como teste.");
+    return;
+  }
+  const marca = document.querySelector(".marca");
+  if (marca) {
+    const i = DEMO_NOME.lastIndexOf(" ");
+    marca.textContent = i > 0 ? DEMO_NOME.slice(0, i) + " " : "";
+    const s = document.createElement("span");
+    s.textContent = i > 0 ? DEMO_NOME.slice(i + 1) : DEMO_NOME;
+    marca.appendChild(s);
+  }
+  const resto = document.title.split(" · ").slice(1).join(" · ");
+  document.title = DEMO_NOME + (resto ? " · " + resto : "");
+  document.querySelectorAll("#sobre h2 ~ p").forEach((p, k) => {
+    p.textContent = k === 0
+      ? "Aqui entra a história de vocês: como começou, o que fazem de diferente e quem atende."
+      : "Fotos, textos e preços de vocês entram no lugar destes exemplos.";
+  });
+  document.querySelectorAll("#sobre .numeros").forEach((el) => { el.style.display = "none"; });
+  document.querySelectorAll("#visite p").forEach((p) => {
+    if (/Endereço/.test(p.textContent)) p.innerHTML = "<strong>Endereço:</strong> o de vocês, com mapa e rota até a porta.";
+    else if (/Horário/.test(p.textContent)) p.innerHTML = "<strong>Horário:</strong> o de vocês, com aviso de aberto ou fechado na hora.";
+  });
+  if (rod) rod.textContent = "Prévia feita para " + DEMO_NOME + " por Talles Eduardo, só para mostrar a ideia. Serviços, preços e fotos são exemplos. Os testes pelo WhatsApp chegam no número do Talles, marcados como teste.";
+  const selo = document.querySelector(".selo");
+  if (selo) selo.textContent = DEMO_BAIRRO ? DEMO_BAIRRO + " · Fortaleza" : "Fortaleza";
+  let aviso = document.querySelector(".aviso");
+  if (!aviso) { aviso = document.createElement("div"); aviso.className = "aviso"; document.body.prepend(aviso); }
+  aviso.textContent = "Prévia feita para " + DEMO_NOME + " · exemplo para mostrar a ideia";
+})();
 // Funcionamento: dias da semana (0 = domingo) e horas de abertura e fechamento
 const DIAS = [2, 3, 4, 5, 6];
 const ABRE = 9;
@@ -19,7 +61,7 @@ const servicos = [
 ];
 
 const real = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-const linkWhats = (msg) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+const linkWhats = (msg) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent((DEMO_NOME ? "[Teste da prévia de " + DEMO_NOME + "] " : "[Teste do site de demonstração] ") + msg)}`;
 
 // Lista de serviços com filtro
 const lista = document.getElementById("itens");
