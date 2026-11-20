@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flor de Mandacaru · Salão de beleza em Fortaleza</title>
+  <meta name="description" content="Landing page de salão de beleza no Bairro de Fátima, Fortaleza. Projeto de portfólio com negócio fictício.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="aviso">Projeto de portfólio · negócio fictício</div>
+
+  <header class="topo">
+    <a href="#inicio" class="marca">Flor de <span>Mandacaru</span></a>
+    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav class="menu">
+      <a href="#servicos">Serviços</a>
+      <a href="#agenda">Agendar</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#visite">Visite</a>
+      <a href="#" class="btn btn-peq js-whats">WhatsApp</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <p class="selo">Fátima · Fortaleza</p>
+        <h1>Cabelo, unhas e autoestima no mesmo endereço.</h1>
+        <p class="sub">Atendimento com hora marcada, produtos profissionais e aquele café enquanto você espera.</p>
+        <div class="acoes">
+          <a href="#agenda" class="btn">Agende seu horário</a>
+          <a href="#servicos" class="btn btn-claro">Ver serviços</a>
+        </div>
+        <ul class="destaques">
+          <li><strong>Ter a sáb</strong><span>9h às 19h</span></li>
+          <li><strong>Hora marcada</strong><span>sem fila</span></li>
+          <li><strong>Pix e cartão</strong><span>em até 3x</span></li>
+        </ul>
+      </div>
+      <div class="hero-arte" aria-hidden="true">
+        <div class="arte-a">✂️</div>
+        <div class="arte-b">💅</div>
+        <div class="arte-c"></div>
+      </div>
+    </section>
+
+    <section class="secao" id="servicos">
+      <div class="cabeca">
+        <h2>Serviços e valores</h2>
+        <p>Valores de referência; o orçamento final depende do comprimento do cabelo.</p>
+      </div>
+      <div class="filtros">
+        <button class="filtro ativo" data-cat="todos">Todos</button>
+        <button class="filtro" data-cat="cabelo">Cabelo</button>
+        <button class="filtro" data-cat="unhas">Unhas</button>
+        <button class="filtro" data-cat="estetica">Estética</button>
+      </div>
+      <div class="itens" id="itens"></div>
+    </section>
+
+    <section class="secao" id="como">
+      <div class="cabeca"><h2>Como funciona</h2></div>
+      <div class="passos">
+        <div class="passo"><h3>Escolha o serviço</h3><p>Veja os valores e escolha o que precisa.</p></div>
+        <div class="passo"><h3>Marque o horário</h3><p>Preencha o formulário e confirme pelo WhatsApp.</p></div>
+        <div class="passo"><h3>É só chegar</h3><p>Seu horário fica reservado, sem fila.</p></div>
+      </div>
+    </section>
+
+    <section class="secao agenda" id="agenda">
+      <div>
+        <h2>Agende seu horário</h2>
+        <p>Escolha o que precisa, o dia e o horário. O pedido vai pronto para o WhatsApp e a confirmação chega por lá.</p>
+      </div>
+      <form class="form" id="form" novalidate>
+        <label>Serviço<select id="f-servico"></select></label>
+        <label>Dia<select id="f-dia"></select></label>
+        <div><span style="font-weight:500;font-size:.92rem">Horário</span><div class="horas" id="horas"></div></div>
+        <label>Seu nome<input id="f-nome" placeholder="Como podemos te chamar?" maxlength="40" autocomplete="name"></label>
+        <p class="resumo" id="resumo"></p>
+        <button class="btn" type="submit">Enviar pelo WhatsApp</button>
+      </form>
+    </section>
+
+    <section class="secao sobre" id="sobre">
+      <div>
+        <h2>Sobre o salão</h2>
+        <p>O Flor de Mandacaru nasceu de duas irmãs que atendiam em casa e viraram referência no bairro.</p>
+        <p>Aqui cada horário é só seu: sem encaixe apertado, sem pressa no secador.</p>
+      </div>
+      <div class="numeros">
+        <div><strong>8</strong><span>anos de bairro</span></div>
+        <div><strong>4</strong><span>profissionais</span></div>
+        <div><strong>1</strong><span>cliente por vez em cada cadeira</span></div>
+      </div>
+    </section>
+
+    <section class="secao visite" id="visite">
+      <div>
+        <h2>Visite</h2>
+        <p><strong>Endereço:</strong> Av. Treze de Maio, 0000 · Fátima, Fortaleza-CE</p>
+        <p><strong>Horário:</strong> terça a sábado, das 9h às 19h</p>
+        <p class="status" id="status"></p>
+        <a href="#agenda" class="btn">Agende seu horário</a>
+      </div>
+      <div class="mapa" aria-label="Mapa ilustrativo">
+        <span>📍</span>
+        <p>Bairro de Fátima, Fortaleza</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Flor de Mandacaru é um negócio fictício. Site feito com IA (Claude) e revisado por <a href="https://github.com/Talles-Eduardo-27">Talles Eduardo</a>, como projeto de portfólio.</p>
+  </footer>
+
+  <a href="#" class="whats-flutuante js-whats" aria-label="Falar no WhatsApp">💬</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
